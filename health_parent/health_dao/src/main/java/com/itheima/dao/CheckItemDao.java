@@ -1,5 +1,6 @@
 package com.itheima.dao;
 
+import com.github.pagehelper.Page;
 import com.itheima.pojo.CheckItem;
 
 import java.util.List;
@@ -11,5 +12,7 @@ public interface CheckItemDao {
      */
     List<CheckItem> findAll();
 
-    void save(CheckItemDao checkItemDao);
+    void save(CheckItem checkItem);
+
+    Page<CheckItem> findPage(String queryString);
 }

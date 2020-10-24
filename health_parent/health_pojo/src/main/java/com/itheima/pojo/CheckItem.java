@@ -57,22 +57,6 @@ public class CheckItem implements Serializable {
         this.age = age;
     }
 
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getAttention() {
-        return attention;
-    }
-
-    public void setAttention(String attention) {
-        this.attention = attention;
-    }
-
     public Float getPrice() {
         return price;
     }
@@ -87,5 +71,21 @@ public class CheckItem implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getAttention() {
+        return attention;
+    }
+
+    public void setAttention(String attention) {
+        this.attention = attention;
     }
 }

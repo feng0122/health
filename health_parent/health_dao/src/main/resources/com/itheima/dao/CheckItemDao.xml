@@ -6,9 +6,19 @@
     <select id="findAll" resultType="com.itheima.pojo.CheckItem">
         select * from t_checkitem
     </select>
+    <!--新增-->
     <insert id="save" parameterType="com.itheima.pojo.CheckItem">
         insert into t_checkitem(code,name,sex,age,price,type,remark,attention)
-        values  (#{code},#{name},#{sex},#{age},#{price},#{type},#{remark},#{attention})
-
+        values
+        (#{code},#{name},#{sex},#{age},#{price},#{type},#{remark},#{attention})
     </insert>
+    
+    <!--分页查询-->
+    <select id="findPage" resultType="com.itheima.pojo.CheckItem" parameterType="String">
+        select * From t_checkitem
+        <if test="value !=null and value.length > 0">
+            where code like #{value} or name like #{value}
+        </if>
+    </select>
+
 </mapper>

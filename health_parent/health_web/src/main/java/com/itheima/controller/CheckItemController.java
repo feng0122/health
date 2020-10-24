@@ -2,6 +2,8 @@ package com.itheima.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.itheima.constant.MessageConstant;
+import com.itheima.entity.PageResult;
+import com.itheima.entity.QueryPageBean;
 import com.itheima.entity.Result;
 import com.itheima.pojo.CheckItem;
 import com.itheima.service.CheckItemService;
@@ -27,6 +29,15 @@ public class CheckItemController {
     public Result save(@RequestBody CheckItem checkItem){
 
         checkItemService.save(checkItem);
+
         return new Result(true, MessageConstant.ADD_CHECKITEM_SUCCESS);
     }
+
+    @PostMapping("/findPage")
+    public Result findPage(@RequestBody QueryPageBean queryPageBean){
+      PageResult<CheckItem> data= checkItemService.findPage(queryPageBean);
+        return new Result(true,MessageConstant.QUERY_CHECKITEM_SUCCESS,data);
+
+    }
+
 }
