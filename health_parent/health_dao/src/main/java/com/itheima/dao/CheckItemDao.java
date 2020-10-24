@@ -15,4 +15,8 @@ public interface CheckItemDao {
     void save(CheckItem checkItem);
 
     Page<CheckItem> findPage(String queryString);
+
+    int findCountByCheckItemId(Integer id);
+
+    void deleteById(Integer id);
 }

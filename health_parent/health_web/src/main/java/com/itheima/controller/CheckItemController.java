@@ -39,5 +39,13 @@ public class CheckItemController {
         return new Result(true,MessageConstant.QUERY_CHECKITEM_SUCCESS,data);
 
     }
+    @PostMapping("/deleteById")
+    public Result deleteById(Integer id){
+        checkItemService.deleteById(id);
+
+        return new Result(true,MessageConstant.DELETE_CHECKGROUP_SUCCESS);
+
+
+    }
 
 }

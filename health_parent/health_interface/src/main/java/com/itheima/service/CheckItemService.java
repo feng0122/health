@@ -26,4 +26,6 @@ public interface CheckItemService {
     PageResult<CheckItem> findPage(QueryPageBean queryPageBean);
 
 
+    void deleteById(Integer id);
+
 }
