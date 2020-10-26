@@ -30,5 +30,22 @@
 
     </select>
 
+    <select id="findById" parameterType="int" resultType="com.itheima.pojo.CheckItem">
+    select * From t_checkitem where id=#{id}
+</select>
+
+    <update id="update" parameterType="com.itheima.pojo.CheckItem">
+        update t_checkitem set code=#{code},
+        name=#{name},
+        sex=#{sex},
+        age=#{age},
+        price=#{price},
+        type=#{type},
+        remark=#{remark},
+        attention=#{attention}
+    where id=#{id}
+
+    </update>
+
 
 </mapper>

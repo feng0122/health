@@ -19,4 +19,15 @@ public interface CheckItemDao {
     int findCountByCheckItemId(Integer id);
 
     void deleteById(Integer id);
+
+   
+
+    void update(CheckItem checkItem);
+
+    /**
+     * 通过id查询
+     * @param id
+     * @return
+     */
+    CheckItem findById(int id);
 }

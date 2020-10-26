@@ -48,4 +48,22 @@ public class CheckItemController {
 
     }
 
+    /**
+     * 通过id查询
+     */
+    @GetMapping("/findById")
+    public Result findById(int id){
+        CheckItem checkItem = checkItemService.findById(id);
+        return new Result(true, MessageConstant.QUERY_CHECKITEM_SUCCESS,checkItem);
+    }
+
+    @PostMapping("/update")
+    public Result update(@RequestBody CheckItem checkItem){
+        checkItemService.update(checkItem);
+
+        return new Result(true,MessageConstant.EDIT_CHECKGROUP_SUCCESS);
+
+
+    }
+
 }

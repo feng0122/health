@@ -11,7 +11,7 @@ import com.itheima.entity.QueryPageBean;
 import com.itheima.exception.MyException;
 import com.itheima.pojo.CheckItem;
 import com.itheima.service.CheckItemService;
-import org.apache.commons.codec.language.Nysiis;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
@@ -54,10 +54,28 @@ public class CheckItemServiceImpl implements CheckItemService {
       int cow=  checkItemDao.findCountByCheckItemId(id);
       if(cow>0){
           //2. 证明再关系表中存在这个关系
-          throw new MyException(MessageConstant.CHECKITEM_IN_USE);
+          throw new MyException("不能删除有关联");
 
       }
       // 没使用直接删除
         checkItemDao.deleteById(id);
     }
+
+
+
+    @Override
+    public void update(CheckItem checkItem) {
+        checkItemDao.update(checkItem);
+    }
+
+    /**
+     * 通过id查询
+     * @param id
+     * @return
+     */
+    @Override
+    public CheckItem findById(int id) {
+        return checkItemDao.findById(id);
+    }
+
 }
